@@ -1,0 +1,10 @@
+Package: tabfm
+Title: R interface to TabFM 
+Version: 0.0.0.9000
+Authors@R: 
+    person("frank", "hull", , "frankiethull@proton.me", role = c("aut", "cre"))
+Description: TabFM is a repository of tabular foundation models from google-research. 
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2

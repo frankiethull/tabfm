@@ -1,13 +1,24 @@
+---
+output: github_document
+---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
 
 # tabfm
 
 <!-- badges: start -->
-
 <!-- badges: end -->
 
-The goal of tabfm is to run TabFM, a tabular foundation model.
+The goal of tabfm is to run TabFM, a tabular foundation model. 
 
 ## Installation
 
@@ -19,7 +30,7 @@ pak::pak('frankiethull/tabfm')
 
 ## Example
 
-``` r
+```{r example}
 library(tabfm)
 library(rsample)
 
@@ -33,7 +44,7 @@ test <- testing(corn_splits)
 
 ### Classification
 
-``` r
+```{r}
 fit_cls <- tabfm_fit(
   train |> dplyr::select(-type),
   train$type
@@ -42,10 +53,9 @@ fit_cls <- tabfm_fit(
 class_preds <- tabfm_predict(fit_cls, test |> dplyr::select(-type))
 
 class_preds |> head()
-#> [1] "Sweet" "Sweet" "Sweet" "Sweet" "Sweet" "Sweet"
 ```
 
-``` r
+```{r}
 class_probs <- tabfm_predict(
   fit_cls,
   test |> dplyr::select(-type),
@@ -53,11 +63,5 @@ class_probs <- tabfm_predict(
 )
 
 class_probs |> head()
-#>              [,1]         [,2]      [,3]
-#> [1,] 4.717414e-05 0.1708070785 0.8291458
-#> [2,] 1.179814e-06 0.0043090940 0.9956897
-#> [3,] 1.176569e-06 0.0070481412 0.9929507
-#> [4,] 2.135778e-05 0.2080314010 0.7919472
-#> [5,] 5.090896e-05 0.3103068769 0.6896423
-#> [6,] 1.493892e-05 0.0004187601 0.9995663
 ```
+
